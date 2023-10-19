@@ -1,0 +1,34 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Response": {
+        "type": "Response",
+        "kind": "Http",
+        "inputs": {
+          "statusCode": 200,
+          "body": "Hello World!"
+        },
+        "runAfter": {}
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "triggers": {
+      "manual": {
+        "type": "Request",
+        "kind": "Http",
+        "inputs": {
+          "schema": {}
+        },
+        "conditions": [
+          {
+            "expression": "@startsWith(triggerOutputs()?['headers']?['Authorization'], 'Bearer')"
+          }
+        ],
+        "operationOptions": "IncludeAuthorizationHeadersInOutputs"
+      }
+    }
+  },
+  "kind": "Stateless"
+}
