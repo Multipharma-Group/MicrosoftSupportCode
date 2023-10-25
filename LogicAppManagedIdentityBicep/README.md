@@ -26,6 +26,17 @@ This pointed to an issue with the Bicep deployment of the 'Microsoft.Web/sites/c
 Which solved the issue and authentication started working, but that's a workaround.
 Thus this repository has been created after discussion with Microsoft Support to provide code to reproduce the issue and escalate it to the Bicep team for resolution.
 
+## Resolution
+
+Issue is solved after adding
+```
+    platform: {
+      enabled: true
+      runtimeVersion: '~1'
+    }
+```
+to the bicep code.
+
 ## Usage
 
 # Prerequisites
