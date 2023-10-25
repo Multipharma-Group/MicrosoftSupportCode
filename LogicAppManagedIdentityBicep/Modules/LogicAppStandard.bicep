@@ -148,6 +148,10 @@ resource symbolicname 'Microsoft.Web/sites/config@2022-03-01' = {
   kind: 'string'
   parent: LogicApp_resource
   properties: {
+    platform: {
+      enabled: true
+      runtimeVersion: '~1'
+    }
     globalValidation: {
       requireAuthentication: true
       unauthenticatedClientAction: 'AllowAnonymous'
@@ -267,7 +271,6 @@ resource ASG 'Microsoft.Network/applicationSecurityGroups@2022-11-01' = {
   tags: DeploymentTags
   properties: {}
 }
-
 
 output LogicAppManagedIdentityID string = LogicApp_resource.identity.principalId
 output LogicAppName string = LogicApp_resource.name

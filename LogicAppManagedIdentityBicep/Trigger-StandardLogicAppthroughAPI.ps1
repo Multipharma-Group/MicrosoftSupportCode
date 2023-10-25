@@ -93,6 +93,7 @@ $Header = @{
 #Preparing the URL to invoke the logic app
 Write-Output "Preparing the URL to invoke the logic app"
 $logicAppUrlWithAuth = "https://$LogicAppRootURL`:443/api/TestAuth/triggers/manual/invoke?api-version=2022-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0"
+$logicAppUrlWithAuth
 
 #Invoke the logic app
 Write-Warning "Invoking the logic app with Access Token of the current account"
